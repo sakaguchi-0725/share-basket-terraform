@@ -11,6 +11,13 @@ resource "aws_security_group" "this" {
     security_groups = [var.bastion_sg_id]
   }
 
+  ingress {
+    from_port       = 6443
+    to_port         = 6443
+    protocol        = "tcp"
+    security_groups = [var.bastion_sg_id]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
